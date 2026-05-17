@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retro Console Donation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <h1 class="pixel-font pixel-glow pixel-glow-animated">Retro Console Donation</h1>
+    <p class="pixel-font pixel-glow-red">Give your old and broken consoles a new home!</p>
+</header>
+
+<section class="console-list">
+    <h2>Consoles We Accept</h2>
+
+    <div class="console-row">
+
+        <div class="console-card">
+            <img src="images/nes.jpg" alt="NES">
+            <h3 class="small-title">Nintendo Entertainment System (NES)</h3>
+        </div>
+
+        <div class="console-card">
+            <img src="images/snes.jpg" alt="Super Nintendo Entertainment System">
+            <p>Super Nintendo (SNES)</p>
+        </div>
+
+        <div class="console-card">
+            <img src="images/n64.jpg" alt="Nintendo 64">
+            <p>Nintendo 64</p>
+        </div>
+
+        <div class="console-card">
+            <img src="images/genesis.jpg" alt="Genesis">
+            <h3>Sega Genesis</h3>
+        </div>
+
+        <div class="console-card">
+            <img src="images/sega-saturn.jpg" alt="Sega Saturn">
+            <p>Sega Saturn</p>
+        </div>
+
+        <div class="console-card">
+            <img src="images/dreamcast.jpg" alt="Sega Dreamcast">
+            <p>Sega Dreamcast</p>
+        </div>
+
+        <div class="console-card">
+            <img src="images/playstation-consoles.jpg" alt="Playstation - All Generations">
+            <p class="ps1-label">PlayStation All Generations</p>
+        </div>
+
+        <div class="console-card">
+            <img src="images/gamecube.jpg" alt="Nintendo GameCube">
+            <p class="small-label">Nintendo GameCube</p>
+        </div>
+
+        <div class="console-card">
+            <img src="images/xbox-all.PNG" alt="Xbox All Generations">
+            <p>Xbox All Generations</p>
+        </div>
+
+        <div class="console-card">
+            <img src="images/gameboy.jpg" alt="Nintendo Game Boy">
+            <p>Nintendo Game Boy All Variants</p>
+        </div>
+
+        <div class="console-card">
+            <img src="images/nintendo-ds.jpg" alt="Nintendo DS">
+            <p>Nintendo DS All Variants</p>
+        </div>
+
+        <div class="console-card">
+            <img src="images/psp.jpg" alt="PlayStation Portable">
+            <p>PSP and PSVITA</p>
+        </div>
+
+    </div>
+</section> <!-- FIXED: this was missing -->
+
+<section class="donation-form">
+
+    <form id="donationForm">
+        <div class="form-box">
+            <h2>Donate Your Console</h2>
+
+            <label>Your Name</label>
+            <input type="text" placeholder="John Doe">
+
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com">
+
+            <label>Additional Notes</label>
+            <textarea placeholder="Condition, accessories included, etc."></textarea>
+        </div>
+
+        <button type="submit" class="button-8bit">Submit Donation</button>
+    </form>
+
+    <p id="formSuccess" style="display:none; color:#4caf50; margin-top:15px;">
+        Thank you for your donation! We will contact you soon.
+    </p>
+
+</section>
+
+<script>
+document.getElementById("donationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.querySelector("input[type='text']").value.trim();
+    const email = document.querySelector("input[type='email']").value.trim();
+    const notes = document.querySelector("textarea").value.trim();
+    const successMsg = document.getElementById("formSuccess");
+
+    if (!name || !email) {
+        alert("Please fill in your name and email.");
+        return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    successMsg.style.display = "block";
+    document.getElementById("donationForm").reset();
+});
+</script>
+
+</body>
+</html>
